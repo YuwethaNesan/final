@@ -1,0 +1,105 @@
+body{
+  background-color: rgb(255, 237, 195) !important;
+}
+main {
+  min-height: 80vh;
+}
+
+h4 {
+  padding: 1rem 0;
+}
+.navbar{
+  background-color:  rgb(131, 0, 87)!important;
+  color: rgb(255, 184, 31) !important;
+  padding: 10px 0px 10px 0px !important;
+}
+.formreg{
+  box-sizing: border-box !important;
+  border-color: brown !important;
+}
+.navbar
+a{
+  color: rgb(255, 240, 31) !important;
+  font-weight: 600 !important;
+  font-size: large !important;
+  padding: 10px !important;
+  margin: 0 !important;
+}
+.dropdown{
+  color: black !important;
+}
+.rating span {
+  margin: 0.1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.2rem !important;
+  padding: 0.5em 0;
+}
+
+.carousel img {
+  max-height: 400px !important;
+  max-width:600px !important ;
+}
+
+.carousel-caption h2 {
+  color: rgb(255, 255, 255);
+  float: right !important;
+}
+.carousel-caption p {
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  float: right !important;
+  text-align: right !important;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+.carosal{
+margin: 10px 20px 10px 20px !important;
+border-radius: 20px !important;
+}
+@media only screen and (min-width: 768px) {
+  .carousel img {
+    height: 50%;
+    width: 50%;
+  }
+}
+/* .tableproducts
+td{
+  background-color: rgb(255, 152, 221);
+} */
+.footer{
+  background-color: rgb(131, 0, 87) !important;
+  color: rgb(255, 215, 85);
+  max-width: 100% !important;
+  padding: 10px !important;
+  margin: 0 !important;
+  text-align: center !important;
+  position: fixed !important;
+  width:100%;
+  height:7%;
+  bottom:0;
+  left:0;
+}
+.mycard{
+  max-width: 400px !important;
+  max-height: 500px !important;
+}
+img{
+  max-width: 400px !important;
+  max-height: 500px !important;
+}
+.mybtn{
+  color: rgb(255, 215, 85) !important;
+  background-color:rgb(131, 0, 87) !important ;
+  border-radius: 10px !important;
+  font-family: serif !important;
+  font-weight: 800 !important;
+}
