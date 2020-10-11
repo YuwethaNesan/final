@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Container } from "react-bootstrap";
 import HomeScreen from "./screens/HomeScreen";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import ProductScreeen from "./screens/ProductScreeen";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -21,23 +21,10 @@ import OrderListScreen from "./screens/OrderListScreen";
 import Begin from "./screens/begin";
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
       
-      {/* <div>
-      <aside className="sidebar">
-          <h3>Shopping Categories</h3>
-          <ul className="categories">
-            <li>
-              <Link to="/category/previous">Pants</Link>
-            </li>
-
-            <li>
-              <Link to="/category/fresh">Shirts</Link>
-            </li>
-          </ul>
-        </aside>
-        </div> */}
+     
       <main>
         <Container>
         <div className='carosal'>
@@ -56,10 +43,7 @@ function App() {
           <Route  path="/admin/userlist" component={UserListScreen} />
           <Route path="/search/:keyword" component={HomeScreen}  />
           <Route  path="/page/:pageNumber" component={HomeScreen}  />
-          <Route  path="/category/previous" component={HomeScreen} />
-          <Route  path="/category/fresh" component={HomeScreen} />
-          
-
+       
           <Route
             path="/search/:keyword/page/:pageNumber"
             component={HomeScreen}
@@ -81,7 +65,7 @@ function App() {
         </Container>
       </main>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

@@ -17,6 +17,44 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <!-- GetButton.io widget -->
+<script type="text/javascript">
+  (function () {
+      var options = {
+          facebook: "100923145068252", // Facebook page ID
+          whatsapp: "94767703654", // WhatsApp number
+          call_to_action: "Welcome to Yuthies Aari!", // Call to action
+          button_color: "#932C8B", // Color of button
+          position: "right", // Position may be 'right' or 'left'
+          order: "facebook,whatsapp", // Order of buttons
+          size: '72px',
+          backgroundColor: '#25D366',
+          headerColor: '#128C7E',
+          headerTitle: 'WhatsApp Chat',
+          zIndex: 0,
+  
+            linkButton:true,
+            autoOpenTimeout: 100,
+            chatMessage: 'Chat Window Title',
+            message: "Chat Message",
+            nameClient: "jQuery Script",
+            position:"right",
+
+            showPopup: true,
+            showOnIE: false,
+            headerTitle: 'Welcome!',
+            headerColor: 'crimson',
+            backgroundColor: 'crimson',
+            
+    
+      };
+      var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+  })();
+</script>
+<!-- /GetButton.io widget -->
     <title>Welcome to Yuthies Aari</title>
   </head>
   <body>

@@ -134,7 +134,7 @@ export const productTopRatedReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
-export const productCateRatedReducer = (state = { products: [] }, action) => {
+export const productCateReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case PRODUCT_CATE_REQUEST:
       return { loading: true, products: [] };

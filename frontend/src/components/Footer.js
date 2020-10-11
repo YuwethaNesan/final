@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 function Footer() {
   return (
     <footer>
-      <Container>
+      <Container className='footer'>
         <Row>
           <Col className="text-center footer">Copyright &copy; Yuthies Aari</Col>
         </Row>

@@ -5,16 +5,17 @@ import Product from "./../components/Product";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "./../actions/productAction";
+import { listCateProducts } from "./../actions/productAction";
 import Loader from "./../components/Loader";
 import Message from "./../components/Message";
 import Paginate from "./../components/Paginate";
 // import ProductCarousel from "../components/ProductCarousel";
 import Meta from "./../components/Meta";
-import { Link } from "react-router-dom";
-
+import { Link,Route } from "react-router-dom";
+import SearchBox from "../components/Searchbox";
 function HomeScreen({ match }) {
   const keyword = match.params.keyword;
-
+  const category = match.params.category;
   const pageNumber = match.params.pageNumber || 1;
 
   const dispatch = useDispatch();
@@ -24,13 +25,15 @@ function HomeScreen({ match }) {
   const { loading, error, products, pages, page } = productList;
 
   useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber));
-  }, [dispatch, keyword, pageNumber]);
+    dispatch(listProducts(keyword, pageNumber,category));
+  }, [dispatch, keyword, pageNumber,category]);
 
   return (
     <>
       <Meta />
-      
+      <Route className=" searchbtn"
+         render={({ history }) => <SearchBox className="mybtn" history={history} />}
+       />
         <Link to="/" className="btn btn-light">
           Go Back
         </Link>
@@ -46,6 +49,7 @@ function HomeScreen({ match }) {
             {products.map((product) => (
               <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
                 <Product className="card" product={product} />
+                
               </Col>
             ))}
           </Row>
@@ -53,6 +57,7 @@ function HomeScreen({ match }) {
             page={page}
             pages={pages}
             keyword={keyword && keyword ? keyword : ""}
+            category={category && category ? category : ""}
           />
         </>
       )}

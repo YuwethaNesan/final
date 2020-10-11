@@ -158,14 +158,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
 
   res.json(products);
 });
-// desc    Get top rated products
-// route   GET /api/products/top
-// access  Public
-const getCateProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({category});
 
-  res.json(products);
-});
 module.exports = {
   getProducts,
   getProductById,
@@ -174,5 +167,4 @@ module.exports = {
   updateProduct,
   createProductReview,
   getTopProducts,
-  getCateProducts,
 };

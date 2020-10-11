@@ -3,8 +3,7 @@ import { Nav, Container, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/usersAction";
-import { Route } from "react-router-dom";
-import SearchBox from "./Searchbox";
+
 
 function Header() {
   const dispatch = useDispatch();
@@ -29,12 +28,15 @@ function Header() {
                 
                 {userInfo && userInfo.token ? (
                   <>
-                  <Route
-                   render={({ history }) => <SearchBox history={history} />}
-                   />
-                <LinkContainer to="/home">
+                  
+                <LinkContainer to="/search/fresh">
                   <Nav.Link>
-                    Products
+                    Fresh
+                  </Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/search/previous">
+                  <Nav.Link>
+                    Previous
                   </Nav.Link>
                 </LinkContainer>
                 <LinkContainer to="/cart">

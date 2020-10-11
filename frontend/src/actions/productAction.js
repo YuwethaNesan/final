@@ -25,6 +25,7 @@ import {
   PRODUCT_CATE_FAIL,
 } from "./../constants/productConstants";
 import axios from "axios";
+import Axios from 'axios';
 
 export const listProducts = (keyword = "", pageNumber = "") => async (
   dispatch
@@ -35,6 +36,14 @@ export const listProducts = (keyword = "", pageNumber = "") => async (
     const { data } = await axios.get(
       `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
     );
+    // const { data } = await axios.get(
+    //   '/api/products?category=' +
+    //     category +
+    //     '&keyword=' +
+    //     keyword +
+    //     '&pageNumberr=' +
+    //     pageNumber
+    // );
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -231,47 +240,23 @@ export const listTopProducts = () => async (dispatch) => {
     });
   }
 };
-export const listCatesProducts = () => async (dispatch) => {
+export const listCateProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_CATE_REQUEST });
-
-    const { data } = await axios.get(`/api/products/cate`);
-
-    dispatch({
-      type: PRODUCT_CATE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_CATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
-export const listCateProducts = (category = "") => async (
-  dispatch
-) => {
-  try {
-    dispatch({ type: PRODUCT_CATE_REQUEST });
-
     const { data } = await axios.get(
-      `/api/products?category=${category}`
-    );
-
-    dispatch({
-      type: PRODUCT_CATE_SUCCESS,
-      payload: data,
+      `/search/:category`);
+    dispatch({ 
+      type: PRODUCT_CATE_SUCCESS, 
+      payload: data 
     });
   } catch (error) {
-    dispatch({
-      type: PRODUCT_CATE_FAIL,
-      payload:
-        error.response && error.response.data.message
+    dispatch({ 
+      type: PRODUCT_CATE_FAIL, 
+      payload: 
+      // error.message
+      error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
+          : error.message, 
     });
   }
 };
