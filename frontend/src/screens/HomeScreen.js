@@ -31,14 +31,14 @@ function HomeScreen({ match }) {
   return (
     <>
       <Meta />
-   
-        <Link to="/" className="btn btn-light">
-          Go Back
+   <div className='cardbg'>
+        <Link to="/">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         </Link>
         {/* <Route
                 render={({ history }) => <SearchBox history={history} />}
               /> */}
-      <h2>{keyword}</h2>
+      <h2 className='key'>{keyword}</h2>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -47,7 +47,7 @@ function HomeScreen({ match }) {
         <>
           <Row>
             {products.map((product) => (
-              <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
+              <Col className='productmain' sm={12} md={6} lg={4} xl={3} key={product._id}>
                 <Product product={product} />
               </Col>
             ))}
@@ -59,6 +59,7 @@ function HomeScreen({ match }) {
           />
         </>
       )}
+      </div>
     </>
   );
 }

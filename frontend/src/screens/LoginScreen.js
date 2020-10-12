@@ -71,7 +71,7 @@ function LoginScreen({ location, history }) {
           <Button className='mybtnreg' type="submit">
             Sign In
           </Button>
-        </Form>
+        
         <Row className="py-3">
           <Col>
             New to Yuthies Aari?{" "}
@@ -82,6 +82,7 @@ function LoginScreen({ location, history }) {
             </Link>
           </Col>
         </Row>
+        </Form>
       </FormContainer>
     </>
   );

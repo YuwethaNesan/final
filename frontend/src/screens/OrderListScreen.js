@@ -26,13 +26,14 @@ const OrderListScreen = ({ history }) => {
 
   return (
     <>
+  <div className='cardbg'>
       <h1>Orders</h1>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className="table-sm">
+        <Table id='customers'striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -77,6 +78,7 @@ const OrderListScreen = ({ history }) => {
           </tbody>
         </Table>
       )}
+      </div>
     </>
   );
 };

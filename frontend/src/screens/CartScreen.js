@@ -41,9 +41,10 @@ function CartScreen({ match, location, history }) {
 
   console.log(cartItems);
   return (
+    <div className='cartbg'>
     <Row className='cartpho'>
       <Col md={8}>
-        <h1 className='shoca'>Shopping Cart</h1>
+        <h2>Shopping Cart</h2>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to="/">Go to Back</Link>
@@ -120,6 +121,7 @@ function CartScreen({ match, location, history }) {
         </Card>
       </Col>
     </Row>
+    </div>
   );
 }
 

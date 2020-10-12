@@ -27,7 +27,10 @@ function ShippingScreen({ history }) {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
+      <div className='paystep' >
+
+      <h1>Address</h1>
+      <h6 className='h6p'>Please provide address for material collecting.</h6>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
           <Form.Label>Address</Form.Label>
@@ -73,10 +76,11 @@ function ShippingScreen({ history }) {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" className='mybtncontinue'>
           Continue
         </Button>
       </Form>
+      </div>
     </FormContainer>
   );
 }

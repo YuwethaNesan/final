@@ -59,6 +59,7 @@ const RegisterScreen = ({ location, history }) => {
             type="name"
             placeholder="Enter name"
             value={name}
+            required
             onChange={(e) => setName(e.target.value)}
           ></Form.Control></div>
         </Form.Group> 
@@ -71,6 +72,7 @@ const RegisterScreen = ({ location, history }) => {
           className="formcontrol"
             type="email"
             placeholder="Enter email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control></div>
@@ -85,6 +87,8 @@ const RegisterScreen = ({ location, history }) => {
             type="password"
             placeholder="Enter password"
             value={password}
+            required
+            minLength='8'
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control></div>
         </Form.Group>
@@ -97,6 +101,7 @@ const RegisterScreen = ({ location, history }) => {
           className="formcontrol"
             type="password"
             placeholder="Confirm password"
+            required
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control></div>
@@ -118,7 +123,7 @@ const RegisterScreen = ({ location, history }) => {
         <Button className='mybtnreg' type="submit" variant="primary">
           Register
         </Button>
-      </Form>
+     
 
       <Row className="py-3">
         <Col>
@@ -128,6 +133,7 @@ const RegisterScreen = ({ location, history }) => {
           </Link>
         </Col>
       </Row>
+      </Form>
     </FormContainer>
     // </div>
   );

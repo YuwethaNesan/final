@@ -37,13 +37,14 @@ function UserListScreen({ history }) {
   //console.log(users);
   return (
     <>
+    <div className='cardbg'>
       <h4>Users</h4>
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className="table-sm">
+        <Table id='customers' striped bordered hover responsive className="table-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -87,6 +88,7 @@ function UserListScreen({ history }) {
           </tbody>
         </Table>
       )}
+      </div>
     </>
   );
 }

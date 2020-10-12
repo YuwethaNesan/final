@@ -20,7 +20,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -95,10 +95,12 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <>
-      <Link to="/admin/productlist" className="btn btn-light my-3">
+      <Link to="/admin/productlist" className="mybtnproup">
         Go Back
       </Link>
-      <FormContainer>
+      
+      <FormContainer className="myformedit">
+      <div className='myformedit'>
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
         {errorUpdate && (
@@ -111,27 +113,33 @@ const ProductEditScreen = ({ match, history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              {/* <Form.Label>Name</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-signature icon"></i>
               <Form.Control
                 type="name"
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
             <Form.Group controlId="price">
-              <Form.Label>Price</Form.Label>
+              {/* <Form.Label>Price</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-money icon"></i>
               <Form.Control
                 type="number"
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
             <Form.Group controlId="image">
-              <Form.Label>Image</Form.Label>
+              {/* <Form.Label>Image</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-file-image-o icon"></i>
               <Form.Control
                 placeholder="Enter image url"
                 value={image}
@@ -144,57 +152,67 @@ const ProductEditScreen = ({ match, history }) => {
                 custom
                 multiple
                 onChange={uploadFileHandler}
-              ></Form.File>
+              ></Form.File></div>
               {uploading}
               {/* <ImageUpload /> */}
             </Form.Group>
 
             <Form.Group controlId="brand">
-              <Form.Label>Brand</Form.Label>
+              {/* <Form.Label>Brand</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-copyright icon"></i>
               <Form.Control
                 type="text"
                 placeholder="Enter brand"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
             <Form.Group controlId="countInStock">
-              <Form.Label>Count In Stock</Form.Label>
+              {/* <Form.Label>No Of Materials</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-sort icon" aria-hidden="true"></i>
               <Form.Control
                 type="number"
                 placeholder="Enter countInStock"
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
             <Form.Group controlId="category">
-              <Form.Label>Category</Form.Label>
+              {/* <Form.Label>Category</Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-list-alt icon" aria-hidden="true"></i>
               <Form.Control
                 type="text"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
             <Form.Group controlId="description">
-              <Form.Label>Description</Form.Label>
+              {/* <Form.Label></Form.Label> */}
+              <div class="input-container">
+              <i class="fa fa-info-circle icon"></i>
               <Form.Control
                 type="text"
                 placeholder="Enter description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-              ></Form.Control>
+              ></Form.Control></div>
             </Form.Group>
 
-            <Button type="submit" variant="primary">
+            <Button type="submit" className='up mybtnproup content-align-left'>
               Update
             </Button>
           </Form>
         )}
+        </div>
       </FormContainer>
+      
     </>
   );
 };

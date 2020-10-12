@@ -16,7 +16,7 @@ function Header() {
   return (
     <div>
       <header className="wave nav">
-        <Navbar id="wave" bg="lg" variant="lg" expand="lg" collapseOnSelect>
+        <Navbar id="wave" bg="lg" variant="lg" className='nav' expand="lg" collapseOnSelect>
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand> <img className="logo" src={Logo} alt="Logo" /></Navbar.Brand>

@@ -56,9 +56,9 @@ const ProfileScreen = ({ location, history }) => {
   };
 
   return (
-    <Row>
+    <Row className='cardbg'>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h3>User Profile</h3>
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">Error occured</Message>}
         {success && (
@@ -123,13 +123,13 @@ const ProfileScreen = ({ location, history }) => {
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <h3>My Orders</h3>
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
           <Message variant="danger">{errorOrders}</Message>
         ) : (
-          <Table striped bordered hover responsive className="table-sm">
+          <Table id='customers' striped bordered hover responsive className="table-sm">
             <thead>
               <tr>
                 <th>ID</th>

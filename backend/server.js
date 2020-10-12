@@ -9,7 +9,10 @@ const orderPoutes = require("./routes/orderroutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 const morgan = require("morgan");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
+const paymentRouter = require("./routes/paymentroutes");
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === "development") {
@@ -21,6 +24,7 @@ dotenv.config();
 app.use(express.json());
 connectDb();
 
+app.use("/pay",paymentRouter);
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderPoutes);

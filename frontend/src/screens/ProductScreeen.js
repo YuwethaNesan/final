@@ -65,6 +65,7 @@ function ProductScreeen({ history, match }) {
   };
   return (
     <>
+    <div className="prodetail">
       <Link to="/" className="btn btn-light my-3">
         Go Back
       </Link>
@@ -75,12 +76,12 @@ function ProductScreeen({ history, match }) {
       ) : (
         <>
           <Meta title={product.name} />
-          <Row>
-            <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+          <Row className='cardbg'>
+            <Col md={4}>
+              <Image className='cartimg' src={product.image} alt={product.name} fluid />
             </Col>
-            <Col md={3}>
-              <ListGroup variant="flush">
+            <Col md={4}>
+              <ListGroup>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
@@ -96,7 +97,7 @@ function ProductScreeen({ history, match }) {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col md={3}>
+            <Col md={4}>
               <Card>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
@@ -140,7 +141,7 @@ function ProductScreeen({ history, match }) {
                   <ListGroup.Item>
                     <Button
                       onClick={addtoCartHandler}
-                      className="btn-block"
+                      className="mybtnproup"
                       type="button"
                       disabled={product.countInStock === 0}
                     >
@@ -151,8 +152,8 @@ function ProductScreeen({ history, match }) {
               </Card>
             </Col>
           </Row>
-          <Row>
-            <Col md={6}>
+          <Row className='review'>
+            <Col md={12}>
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant="flush">
@@ -195,7 +196,7 @@ function ProductScreeen({ history, match }) {
                           onChange={(e) => setComment(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
-                      <Button type="submit" variant="primary">
+                      <Button type="submit" className='mybtnproup'>
                         Submit
                       </Button>
                     </Form>
@@ -210,6 +211,7 @@ function ProductScreeen({ history, match }) {
           </Row>
         </>
       )}
+      </div>
     </>
   );
 }

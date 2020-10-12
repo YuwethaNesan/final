@@ -9,12 +9,13 @@ import {
   payOrder,
   deliverOrder,
 } from "../actions/orderActions";
+import StripeCheckout from 'react-stripe-checkout';
 import axios from "axios";
 import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from "../constants/orderconstants";
-import { PayPalButton } from "react-paypal-button-v2";
+// import { PayPalButton } from "react-paypal-button-v2";
 
 const OrderScreen = ({ match, history }) => {
   const [sdkReady, setSdkReady] = useState(false);
@@ -79,6 +80,17 @@ const OrderScreen = ({ match, history }) => {
   const deliverHandler = () => {
     dispatch(deliverOrder(order));
   };
+  function Ontoken(token) {
+    let totalamount = order.totalPrice 
+
+    const data={token,totalamount}
+    axios.post('http://localhost:9000/pay/payment',data).then( res =>{
+        console.log(res) 
+        alert('Payment Successful')
+    }
+       
+    ).catch (err => console.log(err))
+}
 
   return loading ? (
     <Loader />
@@ -150,7 +162,7 @@ const OrderScreen = ({ match, history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x Rs{item.price} = Rs{item.qty * item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -178,19 +190,29 @@ const OrderScreen = ({ match, history }) => {
                   <Col>Rs{order.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
+              {/* <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
                   <Col>Rs{order.taxPrice}</Col>
                 </Row>
-              </ListGroup.Item>
+              </ListGroup.Item> */}
               <ListGroup.Item>
                 <Row>
                   <Col>Total</Col>
                   <Col>Rs{order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {!order.isPaid && (
+              <StripeCheckout
+                    stripeKey="pk_test_51HbW5xJnYK09rM9t8iYTd5LvwTOdyboIRqKC16qkMwDakmiyV70Xy4yD69jNmBLPuo6Pf4K2BHhaff84VBQvDnsb00lEFoiKY7"
+                    token={Ontoken}
+                    billingAddress
+                    shippingAddress
+                    amount={order.totalPrice}
+                    name="Yuthies Aari"
+                   
+
+                    />
+              {/* {!order.isPaid && (
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
@@ -202,7 +224,7 @@ const OrderScreen = ({ match, history }) => {
                     />
                   )}
                 </ListGroup.Item>
-              )}
+              )} */}
               {loadingDeliver && <Loader />}
               {userInfo &&
                 userInfo.isAdmin &&

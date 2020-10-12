@@ -72,13 +72,14 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <>
+    <div className='cardbg'>
       <Row className="align-items-center">
         <Col>
           <h1>Products</h1>
         </Col>
         <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler}>
-            <i className="fa fa-plus"></i> Create Product
+          <Button className=" mybtnproup my-3" onClick={createProductHandler}>
+            <i className="fa fa-plus"></i> Add
           </Button>
         </Col>
       </Row>
@@ -92,7 +93,7 @@ const ProductListScreen = ({ history, match }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Table striped bordered hover responsive className="table-sm">
+          <Table  id="customers" striped bordered hover responsive >
             <thead>
               <tr>
                 <th>ID</th>
@@ -108,7 +109,7 @@ const ProductListScreen = ({ history, match }) => {
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
-                  <td>${product.price}</td>
+                  <td>Rs{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
                   <td>
@@ -132,6 +133,7 @@ const ProductListScreen = ({ history, match }) => {
           <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
+      </div>
     </>
   );
 };

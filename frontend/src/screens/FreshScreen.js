@@ -7,7 +7,7 @@ import React from 'react'
 
 function FreshScreen() {
     return (
-        <div className='svgbg'>
+        <div className='svgbg bghome'>
             <ProductCarousel />
               <About />
         </div>

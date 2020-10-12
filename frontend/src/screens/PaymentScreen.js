@@ -24,8 +24,10 @@ const PaymentScreen = ({ history }) => {
   };
 
   return (
+   
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
+      <div className='paystep' >
       <h1>Payment Method</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
@@ -40,22 +42,24 @@ const PaymentScreen = ({ history }) => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            {/* <Form.Check
+            <Form.Check
               type='radio'
-              label='Stripe'
+              label='Cash On Door Step'
               id='Stripe'
               name='paymentMethod'
-              value='Stripe'
+              value='Cash On Door Step'
               onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check> */}
+            ></Form.Check>
           </Col>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" className='mybtncontinue'>
           Continue
         </Button>
       </Form>
+      </div>
     </FormContainer>
+    
   );
 };
 
